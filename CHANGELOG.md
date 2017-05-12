@@ -1,7 +1,54 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [v2.0]
+## [v2.1.0]
+
+### Added
+
+- Labels configuration for agents to show data on alerts.
+- Added group property for agents to customize shared files set.
+- Send shared files to multiple agents in parallel.
+- New decoder plugin for logs in JSON format with dynamic fields definition.
+- Brought framework from API to Wazuh project.
+
+### Changed
+
+- Changed random data generator for a secure OS-provided generator.
+- Changed Windows installer file name (depending on version).
+- Linux distro detection using standard os-release file.
+- Changed some URLs to documentation.
+- Disable synchronization with SQLite databases for Syscheck by default.
+- Minor changes at Rootcheck formatter for JSON alerts.
+- Added debugging messages to Integrator logs.
+- Show agent ID when possible on logs about incorrecly formatted messages.
+- Use default maximum inotify event queue size.
+- Show remote IP on encoding format errors when unencrypting messages.
+- Increased shared file delivery speed when using TCP.
+- Increased TCP listening socket backlog.
+- Changed Windows agent UI panel to show revision number instead of installation date.
+- Grouping every decoded field (static and dynamic fields) into a data object for JSON alerts.
+
+### Fixed
+
+- Fixed resource leaks at rules configuration parsing.
+- Fixed memory leaks at rules parser.
+- Fixed memory leaks at XML decoders parser.
+- Fixed TOCTOU condition when removing directories recursively.
+- Fixed insecure temporary file creation for old POSIX specifications.
+- Fixed missing agentless devices identification at JSON alerts.
+- Fixed FIM timestamp and file name issue at SQLite database.
+- Fixed cryptographic context acquirement on Windows agents.
+- Fixed debug mode for Analysisd.
+- Fixed bad exclusion of BTRFS filesystem by Rootcheck.
+- Fixed compile errors on macOS.
+- Fixed option -V for Integrator.
+- Exclude symbolic links to directories when sending FIM diffs (by Stephan Joerrens).
+- Fixed daemon list for service reloading at ossec-control.
+- Fixed socket waiting issue on Windows agents.
+- Fixed PCI_DSS definitions grouping issue at Rootcheck controls.
+- Fixed wrong queries to get last Syscheck and Rootcheck date.
+
+## [v2.0] 2017-03-14
 
 ### Added
 
@@ -102,7 +149,6 @@ All notable changes to this project will be documented in this file.
 - Changed JSON timestamp format to ISO8601.
 - Overwrite @timestamp field from Logstash with the alert timestamp.
 - Moved timestamp JSON field to the beginning of the object.
-- Changed random data generator for a secure OS-provided generator.
 
 ### Fixed
 
@@ -165,12 +211,6 @@ All notable changes to this project will be documented in this file.
 - Fixed issue when creating agent backups.
 - Fixed hanging problem on Windows Auth client when negotiation issues.
 - Fixed bug at ossec-remoted that mismatched agent-info files.
-- Fixed resource leaks at rules configuration parsing.
-- Fixed memory leaks at rules parser.
-- Fixed memory leaks at XML decoders parser.
-- Fixed TOCTOU condition when removing directories recursively.
-- Fixed insecure temporary file creation for old POSIX specifications.
-- Fixed missing agentless devices identification at JSON alerts.
 
 ### Removed
 
